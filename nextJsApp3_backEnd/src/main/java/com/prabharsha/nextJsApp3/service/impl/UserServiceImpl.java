@@ -33,12 +33,14 @@ public class UserServiceImpl implements UserService {
     public List<User> getAllUsers() {
         List<UserEntity> userEntities = userRepo.findAll();
 
+
         List<User> users = userEntities.stream().map(userEntity -> new User(
                 userEntity.getUserNIC(),
                 userEntity.getUserName(),
                 userEntity.getContactNo()
         )).collect(Collectors.toList());
         return users;
+
     }
 
 
